@@ -3,6 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 from gensim.summarization import summarize
 from newspaper import Article
+nltk.download('all')
 from nltk.corpus import stopwords
 stop = stopwords.words('english')
 
@@ -32,9 +33,9 @@ def ArticalProcc(artical_link):
     word.append(artical.keywords)
     #print(artical.authors)
     #print(artical.keywords)
-    #print(artical.summary)
+    print("AtricalSummery:-")
+    print(artical.summary)
     return word
-
 
 def withoutNews(news_link):
     artical=requestFunction(news_link).text
@@ -58,7 +59,7 @@ def SwacrppingNews():
     first_news_link=main_link+coverpage_news[0].find('a')['href']
     return ArticalProcc(first_news_link)
 
-print(SwacrppingNews())
+
 
 
 
